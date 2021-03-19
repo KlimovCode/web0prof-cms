@@ -12,16 +12,7 @@ use core\base\exceptions\RouteException;
 use core\base\controllers\RouteController;
 
 try {
-    $masha = RouteController::getInstance();
-    $ivan = RouteController::getInstance();
-    echo $masha->hair . '<br>';
-    echo $ivan->hair . '<br>';
-
-    $masha->hair = 'black';
-    echo $masha->hair . '<br>';
-    echo $ivan->hair . '<br>';
-
-    // RouteController::getInstance()->route();
+     RouteController::getInstance()->route();
 } catch (RouteException $e) {
     exit($e->getMessage());
 }
