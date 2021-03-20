@@ -3,17 +3,20 @@
 namespace core\base\controllers;
 
 use  core\base\settings\Settings;
+use  core\base\settings\ShopSettings;
 
 class RouteController
 {
-    static private $_instance;
+    // singleton pattern start
     private function __construct()
     {
+        $temp = Settings::get('templateArr');
+        $tempWithClue = ShopSettings::get('templateArr');
     }
     private function __clone()
     {
     }
-
+    static private $_instance;
     static public function getInstance() {
         /*
          * self:: // ссылаемся на наш собственный класс
@@ -26,4 +29,5 @@ class RouteController
         // иначе вернем это свойство с записанным в него объектом нашего класса
         return self::$_instance = new self;
     }
+    // singleton pattern end
 }

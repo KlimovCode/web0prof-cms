@@ -6,11 +6,6 @@ namespace core\base\settings;
 
 class Settings
 {
-    // getter
-    static public function get($property) {
-        return self::instance()->$property;
-    }
-
     private $routes = [
         'admin' => [
             'name' => 'admin',
@@ -38,6 +33,10 @@ class Settings
         ]
     ];
 
+    private $templateArr = [
+        'text' => ['name']
+    ];
+
     // singleton pattern start
     static private $_instance;
     private function __construct()
@@ -53,4 +52,23 @@ class Settings
         return self::$_instance = new self;
     }
     // singleton pattern end
+
+    // getter
+    static public function get($property) {
+        return self::instance()->$property;
+    }
+
+    /*
+     * Iterate this settings and refactor it accordance $class setting
+     * add if it not exist in this settings
+     * and override if exist in this settings
+     */
+    public function clueProperties($class) {
+        $baseProperties = [];
+        foreach ($this as $key => $value) {
+            $property = $class::get($key);
+            $baseProperties[$key] = $property;
+        }
+        exit();
+    }
 }
