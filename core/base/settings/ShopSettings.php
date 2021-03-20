@@ -33,7 +33,16 @@ class ShopSettings
         self::$_instance = new self;
         self::$_instance->baseSettings = Settings::instance();
         $baseProperties = self::$_instance->baseSettings->clueProperties(get_class());
+        self::$_instance->setProterties($baseProperties);
         return self::$_instance;
     }
     // singleton pattern end
+
+    protected function setProterties($properties) {
+        if($properties) {
+            foreach ($properties as $key => $value) {
+                $this->$key = $value;
+            }
+        }
+    }
 }
