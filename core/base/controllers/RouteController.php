@@ -1,8 +1,8 @@
 <?php
 
-
 namespace core\base\controllers;
 
+use  core\base\settings\Settings;
 
 class RouteController
 {
@@ -13,8 +13,6 @@ class RouteController
     private function __clone()
     {
     }
-
-    public $hair = 'white';
 
     static public function getInstance() {
         /*
