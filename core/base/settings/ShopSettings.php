@@ -14,7 +14,8 @@ class ShopSettings
     }
 
     private $templateArr = [
-        'text' => ['price']
+        'text' => ['price'],
+        'test' => 'string'
     ];
 
     // singleton pattern start - extended for clue properties with main setting class

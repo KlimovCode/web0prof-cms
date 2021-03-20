@@ -34,7 +34,8 @@ class Settings
     ];
 
     private $templateArr = [
-        'text' => ['name']
+        'text' => ['name'],
+        'test' => 'string by main settings'
     ];
 
     // singleton pattern start
@@ -67,8 +68,31 @@ class Settings
         $baseProperties = [];
         foreach ($this as $key => $value) {
             $property = $class::get($key);
-            $baseProperties[$key] = $property;
+            if(is_array($property) && is_array($value)) {
+                $baseProperties[$key] = $this->arrayMergeRecursive($this->$key, $property);
+                continue;
+            }
+            if(!$property) $baseProperties[$key] = $this->$key;
         }
         exit();
+    }
+
+    public function arrayMergeRecursive() {
+        $arrays = func_get_args();
+        $base = array_shift($arrays);
+        foreach ($arrays as $array) {
+            foreach ($array as $key => $value) {
+                if(is_array($value) && is_array($base[$key])) {
+                    $base[$key] = $this->arrayMergeRecursive($base[$key], $value);
+                } else {
+                    if(is_int($key)) {
+                        if(!in_array($value, $base)) array_push($base, $value);
+                        continue;
+                    }
+                    $base[$key] = $value;
+                }
+            }
+        }
+        return $base;
     }
 }
