@@ -18,12 +18,22 @@ class RouteController
     protected $parameters;
     // Main variables end
 
+    private function __construct()
+    {
+        $adress_str = $_SERVER['REQUEST_URI'];
+
+        // Processing URI, cut last '/' except root of site
+        // site.ru/page/  => site.ru/page
+        // and
+        // site.ru/  => site.ru/
+        if(strrpos($adress_str, '/') === strlen($adress_str)-1 && strrpos($adress_str, '/') !== 0) {
+            
+        }
+    }
+
     /*
      * Singleton pattern start
      */
-    private function __construct()
-    {
-    }
     private function __clone()
     {
     }
