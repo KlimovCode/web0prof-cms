@@ -54,10 +54,13 @@ class Settings
     }
     // singleton pattern end
 
-    // getter
+    /*
+     * Getter
+     */
     static public function get($property) {
         return self::instance()->$property;
     }
+    // Getter end
 
     /*
      * Iterate this settings and refactor it accordance $class setting

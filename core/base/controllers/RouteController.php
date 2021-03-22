@@ -7,11 +7,22 @@ use  core\base\settings\ShopSettings;
 
 class RouteController
 {
-    // singleton pattern start
+    /*
+     * Main variables
+     */
+    protected $routes;
+
+    protected $controller;
+    protected $inputMethod;
+    protected $outputMethod;
+    protected $parameters;
+    // Main variables end
+
+    /*
+     * Singleton pattern start
+     */
     private function __construct()
     {
-        $temp = Settings::get('templateArr');
-        $tempWithClue = ShopSettings::get('templateArr');
     }
     private function __clone()
     {
