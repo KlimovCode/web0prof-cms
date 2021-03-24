@@ -10,3 +10,7 @@ Way to improve my skills, and fill my every day github board.
 and
 // end description block of code
 </pre>
+
+## Routes rules
+site.ru/pages/phone (controller, parameter) <br>
+site.ru/shop/pages/phone (plugin, controller, parameter)
