@@ -12,5 +12,6 @@ and
 </pre>
 
 ## Routes rules
+site.ru/admin/pages/phone (admin panel, controller, parameter) <br>
 site.ru/pages/phone (controller, parameter) <br>
 site.ru/shop/pages/phone (plugin, controller, parameter)
